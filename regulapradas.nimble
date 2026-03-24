@@ -1,0 +1,9 @@
+# Package
+version       = "0.1.0"
+author        = "Lynn Crees"
+description   = "Regula + Pradas constraint-solving guided by rule evaluation"
+license       = "MIT"
+srcDir        = "src"
+
+# Dependencies
+requires "nim >= 2.0.0"
