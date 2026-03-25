@@ -6,7 +6,7 @@
 {.experimental: "strict_funcs".}
 
 import std/tables
-import lattice
+import basis/code/choice
 
 # =====================================================================================================================
 # Types
@@ -24,7 +24,7 @@ type
     bindings*: Table[string, string]  ## Variable bindings from rule match
     constraints*: seq[ConstraintParam]
 
-  SolverFn* = proc(request: TriggerRequest): Result[Table[string, string], BridgeError] {.raises: [].}
+  SolverFn* = proc(request: TriggerRequest): Choice[Table[string, string]] {.raises: [].}
     ## Function that invokes pradas solver and returns assignment.
 
 # =====================================================================================================================
@@ -36,6 +36,6 @@ proc create_trigger*(rule_name: string, bindings: Table[string, string],
   TriggerRequest(rule_name: rule_name, bindings: bindings, constraints: constraints)
 
 proc execute_trigger*(request: TriggerRequest, solver_fn: SolverFn
-                     ): Result[Table[string, string], BridgeError] =
+                     ): Choice[Table[string, string]] =
   ## Execute the solver for a trigger request.
   solver_fn(request)

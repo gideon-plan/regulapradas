@@ -2,5 +2,5 @@
 
 {.experimental: "strict_funcs".}
 
-import regulapradas/[trigger, feedback, constraint_dsl, session, lattice]
-export trigger, feedback, constraint_dsl, session, lattice
+import regulapradas/[trigger, feedback, constraint_dsl, session]
+export trigger, feedback, constraint_dsl, session
